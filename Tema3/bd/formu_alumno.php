@@ -9,6 +9,10 @@
 </head>
 
 <body>
+    <?php include('conexion.php');
+    $sql = "SELECT id,nombre from  carrera";
+    $resultado = $con->query($sql);
+    ?>
 
     <form action="create.php" method="post">
         <div>
@@ -22,6 +26,17 @@
         <div>
             <label for="CU">CU</label>
             <input type="text" name="CU">
+        </div>
+        <div>
+        <label for="idcarrera">Carrera:</label>
+            <select name="idcarrera">
+                <?php while ($row = $resultado->fetch_assoc()) { ?>
+                    <option value="<?php echo $row['id'] ?>"><?php echo $row['nombre'] ?></option>
+
+
+                <?php } ?>
+
+            </select>
         </div>
         <input type="submit" value="Crear">
 
