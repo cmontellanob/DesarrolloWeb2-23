@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-09-2023 a las 23:59:00
+-- Tiempo de generación: 12-09-2023 a las 01:46:47
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `alumno` (
   `id` int(11) NOT NULL,
+  `fotografia` varchar(50) NOT NULL,
   `nombres` varchar(50) NOT NULL,
   `apellidos` varchar(50) NOT NULL,
   `CU` varchar(8) NOT NULL,
@@ -39,12 +40,13 @@ CREATE TABLE `alumno` (
 -- Volcado de datos para la tabla `alumno`
 --
 
-INSERT INTO `alumno` (`id`, `nombres`, `apellidos`, `CU`, `idcarrera`) VALUES
-(2, 'Juanito', 'Perez', '35-865', 4),
-(3, 'Juan ', 'Perez', '35-6666', 4),
-(4, 'Maria', 'Ramirez', '35-6661', 3),
-(5, 'MArcelino', 'Ballivin', '111-333', 2),
-(7, 'Blanditiis minima as', 'Esse minima error e', '35-', 3);
+INSERT INTO `alumno` (`id`, `fotografia`, `nombres`, `apellidos`, `CU`, `idcarrera`) VALUES
+(2, '', 'Juanito', 'Perez', '35-865', 4),
+(3, '', 'Juan ', 'Perez', '35-6666', 4),
+(4, '', 'Maria', 'Ramirez', '35-6661', 3),
+(5, '', 'MArcelino', 'Ballivin', '111-333', 2),
+(7, '', 'Blanditiis minima as', 'Esse minima error e', '35-', 3),
+(9, '64ff8d7d7de04.jpg', 'Harum culpa et perfe', 'Nisi quo dolor est ', 'Et est d', 1);
 
 -- --------------------------------------------------------
 
@@ -67,6 +69,28 @@ INSERT INTO `carrera` (`id`, `nombre`) VALUES
 (3, 'ING. EN TRCNOLOGIAS DELAINFORMACION Y SEGURODAD'),
 (4, 'ING. EN TELECOMUNICACIONES');
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(40) NOT NULL,
+  `correo` varchar(70) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `rol` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nombre`, `correo`, `password`, `rol`) VALUES
+(1, 'Administrador', 'admin@sis256.edu', '7c4a8d09ca3762af61e59520943dc26494f8941b', 'Administrador'),
+(2, 'Usuario', 'usuario@sis256.edu', 'dd5fef9c1c1da1394d6d34b248c51be2ad740840', 'Usuario');
+
 --
 -- Índices para tablas volcadas
 --
@@ -84,6 +108,12 @@ ALTER TABLE `carrera`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -91,13 +121,19 @@ ALTER TABLE `carrera`
 -- AUTO_INCREMENT de la tabla `alumno`
 --
 ALTER TABLE `alumno`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `carrera`
 --
 ALTER TABLE `carrera`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
