@@ -1,3 +1,6 @@
+<?php include('verificar.php');?>
+<?php include('permiso.php');?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,7 +17,12 @@
     $resultado = $con->query($sql);
     ?>
 
-    <form action="create.php" method="post">
+    <form action="create.php" method="post" enctype="multipart/form-data"
+>
+        <div>
+            <label for="fotografia">Fotografia</label>
+            <input type="file" name="fotografia">
+        </div>
         <div>
             <label for="nombres">Nombres</label>
             <input type="text" name="nombres">
