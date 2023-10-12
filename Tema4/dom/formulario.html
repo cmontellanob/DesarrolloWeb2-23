@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    Introduzca su nombre:
+    <form action="registrar.php" method="POST">
+        <div>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre" id="nombre">
+        </div>
+        <div>
+            <label for="nombre">Sexo</label>
+            <input type="radio" name="sexo" id="sexoM" value="M">Masculino
+            <input type="radio" name="sexo" id="sexoF" value="F">Femenino
+
+        </div>
+        <input type="button" value="Enviar" onclick="mostrar()">
+
+
+    </form>
+
+    <script>
+        function mostrar()
+        {
+        var nom = document.getElementsByName("nombre");
+        console.log(nom);
+        alert(nom[0].value)
+        var sexo =document.getElementsByName("sexo");
+        console.log(sexo);
+        alert(sexo[0].value)
+        alert(sexo[1].value)
+
+        }
+    </script>
+
+</body>
+
+</html>

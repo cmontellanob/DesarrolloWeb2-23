@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <input type="number" id="a" />X2 <input type="number" id="b" />X
+    <input type="number" id="c" />=0
+    <button onclick="Calcular()">Calcular</button>
+    <div id="resultado"></div>
+    <script>
+      function Calcular() {
+        var a = document.getElementById("a").value;
+        var b = document.getElementById("b").value;
+        var c = document.getElementById("c").value;
+        var discriminate = b * b - 4 * a * c;
+        var imaginario=""
+        if (discriminate < 0) {
+          discriminate *= -1;
+          imaginario="i"
+        }
+        var x1= (-b + Math.sqrt(discriminate))/2*a
+        var x2= (-b - Math.sqrt(discriminate))/2*a
+        resultado=document.getElementById('resultado');
+        resultado.innerHTML=`<div>x1=${x1}<span style="color:red">${imaginario}</span></div>
+                             <div>x2=${x2}<span style="color:red">${imaginario}</span></div>`
+      }
+    </script>
+  </body>
+</html>

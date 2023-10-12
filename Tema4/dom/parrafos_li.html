@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, iure earum, ab culpa sequi facilis
+        assumenda magni laborum at illo minus, voluptatum quae fugiat sint minima omnis voluptas eos doloribus.</p>
+    <p>Eaque a ad earum aliquam voluptate! Magnam porro eius eveniet exercitationem? Facere nam eaque doloremque at
+        soluta eos pariatur animi possimus modi rerum? Totam, numquam. Sequi necessitatibus exercitationem explicabo
+        harum?</p>
+    <p>Obcaecati, pariatur iure itaque expedita, placeat dolore quidem sint facilis officiis necessitatibus ex dolorem
+        recusandae laborum laudantium. Animi, consectetur iste, omnis voluptates accusamus, fugiat laudantium dolorum
+        veniam eos inventore atque.</p>
+    <p>Quo iste blanditiis, libero consectetur molestiae, exercitationem in nobis dolor error a culpa quas, illum earum
+        impedit? Consequuntur, rem quibusdam voluptatum architecto quae voluptatem numquam enim impedit, sint veniam
+        nam?</p>
+    <p>Id vitae itaque mollitia delectus molestiae tenetur placeat totam assumenda, inventore enim alias, laudantium,
+        deserunt iure ab dolorem pariatur numquam voluptates nesciunt at minus? Libero, molestiae architecto. Vero,
+        excepturi mollitia?</p>
+    <p>Hic quidem veniam vitae ipsam dolores provident cupiditate est expedita fuga quia quis, necessitatibus mollitia
+        autem, saepe sed rem fugit eius dolorum ipsum aliquam nostrum beatae voluptas architecto? Quia, nam.</p>
+    <p>Reprehenderit odio sed rem laborum vitae aliquam magni amet, voluptatum ullam facere eos nisi, sequi impedit.
+        Adipisci, quod rerum at asperiores voluptatibus repellat dolores repellendus corporis numquam, suscipit aperiam
+        incidunt.</p>
+    <p>A illum laboriosam quae debitis facilis neque tempora totam, obcaecati corporis quam laudantium, laborum
+        asperiores dolor suscipit! Inventore dolores tenetur illum commodi dicta, quaerat, optio ex eius, eum magnam
+        aliquam.</p>
+    <p>Architecto, veritatis? Veniam rerum eveniet qui, cupiditate reiciendis neque ipsa illo quas voluptatibus dolor
+        incidunt quibusdam eligendi vitae consequatur, ipsum natus, omnis tempore sapiente asperiores! Minima et
+        officiis doloremque tenetur.</p>
+    <p>Laudantium id blanditiis facilis adipisci vel iure dolore odit consectetur iste quo. Molestias error unde
+        temporibus dolores voluptatibus quaerat eaque id, eos earum pariatur perferendis, voluptatem eveniet eum quo
+        doloribus!</p>
+    <button id="cambiar">cambiar</button>
+    <button id="intercalar">intercalar parrafos</button>
+
+    <script>
+        var parrafos = document.getElementsByTagName('p');
+        document.write('El numero de parrafos es ' + parrafos.length)
+        parrafos[4].innerHTML = 'Marco Laime';
+        // el parrafo 2 la primera letra cambiar a rojo y mayuscula
+        console.log(parrafos[1].style)
+        document.getElementById('cambiar').addEventListener('click', function () {
+            var parrafo2 = parrafos[1].innerHTML;
+            let letra = parrafo2.charAt(0).toUpperCase();
+            let resto = parrafo2.substring(1);
+            let nuevoparrafo = `<span style="color:red">${letra}</span>${resto}`
+            parrafos[1].innerHTML = nuevoparrafo;
+        })
+        document.getElementById('intercalar').addEventListener('click', function () {
+
+            for (i = 0; i < parrafos.length; i++) {
+                if (i % 2 == 0) {
+                    parrafos[i].style.backgroundColor = 'red'
+                }
+                else {
+                    parrafos[i].style.backgroundColor = 'yellow'
+                }
+
+            }
+
+        })
+
+
+
+
+
+       
+
+
+    </script>
+</body>
+
+</html>
