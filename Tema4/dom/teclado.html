@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password">
+        <input id="boton" onclick="mostrar()" type="button" value="Mostrar">
+    </div>
+
+    <table>
+        <tr>
+            <td onclick="escribir(1)">1</td>
+            <td onclick="escribir(2)">2</td>
+            <td onclick="escribir(3)">3</td>
+        </tr>
+        <tr>
+            <td onclick="escribir(4)">4</td>
+            <td onclick="escribir(5)">5</td>
+            <td onclick="escribir(6)">6</td>
+        </tr>
+        <tr>
+            <td onclick="escribir(7)">7</td>
+            <td onclick="escribir(8)">8</td>
+            <td onclick="escribir(9)">9</td>
+        </tr>
+        <tr>
+            <td>*</td>
+            <td onclick="escribir(0)">0</td>
+            <td onclick="limpiar()">limpiar</td>
+
+        </tr>
+
+
+    </table>
+
+    <script>
+        function limpiar() {
+            document.getElementById("password").value = "";
+        }
+
+
+        function mostrar() {
+            
+            if (document.getElementById("password").type == "password") {
+                
+                document.getElementById("password").type = "text";
+                document.getElementById("boton").value = "ocultar";
+            }
+            else {
+                document.getElementById("password").type = "password";
+                document.getElementById("boton").value = "mostrar";
+            }
+        }   
+        function escribir(numero){
+            document.getElementById("password").value+=numero;
+        }
+    </script>
+</body>
+
+</html>

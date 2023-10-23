@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="a">
+    <input type="number" id="b">
+    <input type="number" id="c">
+    <button onclick="calcularMayor()" > calcular mayor</button>
+
+    <script>
+      
+
+        function calcularMayor(){
+            let a1 = document.getElementById("a");
+            let b1 = document.getElementById("b");
+            let c1 = document.getElementById("c");
+           
+            a1.style.backgroundColor = "white"; 
+            b1.style.backgroundColor = "white"; 
+            c1.style.backgroundColor = "white"; 
+
+
+            let a = parseInt(document.getElementById("a").value);
+            let b = parseInt(document.getElementById("b").value);
+            let c = parseInt(document.getElementById("c").value);
+
+
+            if(a>=b && a>=c){
+                a1.style.backgroundColor = "red"; 
+            }else if(b>=a && b>=c){
+                b1.style.backgroundColor = "red"; 
+
+            }else if(c>=a && c>=b){
+                c1.style.backgroundColor = "red"; 
+
+            } 
+            
+          }
+
+    </script>
+    
+
+</body>
+</html>

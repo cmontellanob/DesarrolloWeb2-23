@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,40 +8,21 @@
 </head>
 
 <body>
-    <div style="text-align: right;"><a href="cerrarsession.php">Cerrar Session</a></div>
-
-    <div>
-        <form action="read.php" method="GET">
-        <div>
-            <label for="buscar">buscar</label>
-            <input type="text" name="buscar" >
-            <input type="submit" value="Buscar">
-        </div>
-        </form>
-    </div>
     <?php include('conexion.php');
-    $orden=isset($_GET['orden'])?$_GET['orden']:'id';
-    
     $sql = "SELECT a.id,fotografia,nombres,apellidos,CU,c.nombre as carrera FROM alumno a
     LEFT JOIN carrera c on a.idcarrera=c.id ";
-    if (isset($_GET['buscar']))
-    {
-        $buscar=$_GET['buscar'];
-        $sql .=" WHERE nombres like '%$buscar%' ";
-    }
-    $sql.="order by $orden";
 
-    //echo $sql;
+    echo $sql;
     $resultado = $con->query($sql);
     if ($resultado->num_rows > 0) {
     ?>
         <table>
             <tr>
                 <th>Fotografia</th>
-                <th><a href="read.php?orden=nombres">Nombres</a></th>
-                <th><a href="read.php?orden=apellidos">Apellidos</a> </th>
-                <th><a href="read.php?orden=CU">CU</a></th>
-                <th><a href="read.php?orden=carrera">Carrera</a></th>
+                <th>Nombres</th>
+                <th>Apellidos </th>
+                <th>CU</th>
+                <th>Carrera</th>
                 <th>Operaciones</th>
             </tr>
             <?php while ($row = $resultado->fetch_assoc()) {
@@ -69,14 +49,7 @@
     ?> <div>No existen registros que mostrar</div>
     <?php }
     ?>
-    <?php if ($_SESSION['rol'] == "Administrador") {
-    ?>
-
-        <a href="formu_alumno.php">Crear Alumno</a>
-    <?php } ?>
-
-
-
+    
 </body>
 
 </html>

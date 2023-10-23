@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <input type="number" id="numero">
+    <button onclick="llenar()">Llenar</button>
+
+    <div id="elemento">
+
+    </div>
+
+</body>
+
+</html>
+<script>
+ function llenar(){
+    n = parseInt(document.getElementById("numero").value);
+    html = '';
+    for (i = 0; i<n;i++)
+    {
+        html+=`<input type="number" name="numeros"></br>`
+    }
+
+    html+='<button onclick="calcularMayor()">Calcular Mayor</button>';
+    document.getElementById("elemento").innerHTML=html;
+    
+
+ }
+ function calcularMayor(){
+    numeros = document.getElementsByName("numeros");
+    mayor = numeros[0];
+    for(i=1; i< numeros.length; i++){
+        valor=parseInt(mayor.value);
+        valorComparar = parseInt(numeros[i].value);
+        if(valorComparar > valor){
+            mayor = numeros[i];
+        }
+    }
+    console.log(mayor)
+    mayor.style.color = 'yellow';
+    mayor.style.backgroundColor = 'black';
+ }
+</script>
