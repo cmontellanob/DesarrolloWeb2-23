@@ -1,0 +1,107 @@
+.principal{
+    display: flex;
+    width: 900px;
+    height: 500px;
+    background-color: rgb(121, 163, 149);
+    margin: 100px 200px;
+    border: 1px solid black;
+    justify-items: center;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+.listas{
+    display: inline-block;
+    border: 1px solid black;
+    padding: 30px;
+    text-decoration: none;
+    background-color: cyan;
+}
+
+.primera{
+    display:flex;
+    width: 100%;
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.contenedor{
+    width: 800px;
+    height: auto;
+    border: 1px solid black;
+    margin: 100px 350px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.encabezado{
+
+    display: flex;
+    align-items: center;
+    height: auto;
+    text-align: center;
+    justify-content: center;
+    padding: 20px;
+    border-bottom: 1px solid black;
+    background-color: rgb(57, 156, 156);
+
+}
+.botones{
+    display: flex;
+    width:100%;
+    height: 50px;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.botones a{
+    display: flex;
+    padding: 10px;
+    color: black;
+    color:white;
+}
+
+
+
+.botones2{
+    display: flex;
+    height: 40px;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.botones2 a{
+    display: flex;
+    color: black;
+    text-decoration: none;
+    padding: 10px;
+    color:white;
+
+}
+
+.forma{
+    display: flex;
+    width: 600px ;
+    height: 300px;
+    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    background-color: darksalmon;
+    margin: 100px 200px;
+
+}
+.for{
+    padding: 20px;
+    background-color: brown;
+    color: white;
+}
+
+
+
+
+
+
