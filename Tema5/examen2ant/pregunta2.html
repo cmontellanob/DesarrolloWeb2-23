@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="titulo">
+    </div>
+    <div id="menu">
+        <ul> 
+            <li>pregunta 1</li>
+            <li> <a href="javascript:crearform()"> pregunta 2</a> </li>
+            <li> <a href="javascript:crear()">pregunta 3</a></li>
+            <li>pregunta 4</li>
+        </ul>
+    </div>
+    
+    <div id="container">
+       
+    </div>
+    <script>
+        function crearform(){
+            const titulo = document.getElementById('titulo');
+            titulo.innerHTML= ` <h1> Pregunta 2 DOM en Javascript</h1> `
+            const container = document.getElementById('container');
+            container.innerHTML = `
+
+
+                <label> filas </label>
+                <input id="filas" type="number">
+                <label> columnas </label>
+                <input id="columnas" type="number">
+                <button onclick="creartabla()"> Dibujar</button>
+            `
+        }
+
+        function creartabla(){
+            var filas = parseInt(document.getElementById('filas').value)
+            var columnas = parseInt(document.getElementById('columnas').value)
+            
+            var tabla = document.getElementById('container')
+            
+            html = '<table border="1">'
+
+            for (i=0; i<filas ; i++ ){
+                html += '<tr>';
+
+                for (j=0; j<columnas; j++){
+                    html+= '<td>&nbsp;</td>'
+                }
+                html +='</tr>'
+            }
+            html += '</table>';
+            tabla.innerHTML= html;
+        }
+
+        function crear(){
+            document.getElementById('titulo').innerHTML = "Pregunta 3 Insertar en fetch";
+            var contenedor;
+            contenedor = document.getElementById('container');
+            fetch('forminsrt.html')
+		        .then(response => response.text())
+		        .then(data => contenedor.innerHTML=data);   
+            }
+    </script>
+</body>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <form action="javascript:insertar()" method="post" id="form0">
+            <label for="id">id</label>
+            <input type="number" name="id"><br>
+            <label for="imagen">imagen</label>
+            <input type="text" name="imagen"><br>
+            <label for="titulo">titulo</label>
+            <input type="text" name="titulo"><br>
+            <label for="autor">autor</label>
+            <input type="text" name="autor"><br>
+            <label for="idet">id de editorial</label>
+            <input type="number" name="idet" id=""><br>
+            <label for="anho">año</label>
+            <input type="number" name="anho"><br>
+            <label for="idusu">id de usuario</label>
+            <input type="number" name="idusu"><br>
+            <label for="idcar">id de carrera</label>
+            <input type="number" name="idcar"><br>
+            <input type="submit" value="insertar">
+        </form>
+    </main>
+
+    <script>
+        function insertar(){
+            var contenedor;
+            contenedor = document.getElementById('container');
+            var formulario = document.getElementById("form0");
+            var parametros = new FormData(formulario);
+
+            var ajax = new XMLHttpRequest() //crea el objetov ajax 
+            ajax.open("post", 'insertar.php' , true);
+            ajax.onreadystatechange = function ( ) {
+        if (ajax.readyState == 4) {
+            contenedor.innerHTML = ajax.responseText;
+        }
+    }
+
+    ajax.send(parametros );
+        }
+    </script>
+</body>
+</html>
