@@ -7,9 +7,17 @@ $sql_carreras = "SELECT id,carrera from carreras";
 $usuarios = $con->query($sql_usuarios);
 $editoriales = $con->query($sql_editoriales);
 $carreras = $con->query($sql_carreras);
-$opciones_edutoriales="";
+$opciones_editoriales="";
 while ($row = $editoriales->fetch_assoc()) { 
-    $opciones_edutoriales+='<option value="'.$row['id']. '?>'. $row['editorial'].'</option>';
+    $opciones_editoriales.='<option value="'.$row['id']. '">'. $row['editorial'].'</option>';
+}
+$opciones_usuarios="";
+while ($row = $usuarios->fetch_assoc()) { 
+    $opciones_usuarios.='<option value="'.$row['id']. '">'. $row['nombrecompleto'].'</option>';
+}
+$opciones_carreras="";
+while ($row = $carreras->fetch_assoc()) { 
+    $opciones_carreras.='<option value="'.$row['id']. '">'. $row['carrera'].'</option>';
 }
 
 
@@ -32,18 +40,14 @@ while ($row = $editoriales->fetch_assoc()) {
                 <td> <input type="text" name="titulo<?php echo $i ?>"></td>
                 <td><input type="text" name="autor<?php echo $i ?>">
                 <td><select name="editorial<?php echo $i ?>">
-                        <?php echo $opciones_edutoriales?>
+                        <?php echo $opciones_editoriales?>
                     </select></td>
                 <td><input type="number" name="anio<?php echo $i ?>"> </td>
                 <td><select name="usuario<?php echo $i ?>">
-                <?php while ($row = $usuarios->fetch_assoc()) { ?>
-                    <option value="<?php echo $row['id'] ?>"><?php echo $row['nombrecompleto'] ?></option>
-                <?php } ?>
+                <?php echo $opciones_usuarios?>
                 </select></td>
                 <td><select name="carrera<?php echo $i ?>">
-                <?php while ($row = $carreras->fetch_assoc()) { ?>
-                    <option value="<?php echo $row['id'] ?>"><?php echo $row['carrera'] ?></option>
-                <?php } ?>
+                <?php echo $opciones_carreras?>
                 </select></td>
 
 
