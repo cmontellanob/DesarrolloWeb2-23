@@ -60,7 +60,7 @@ function pregunta3() {
 function pregunta4() {
     var contenedor;
     contenedor = document.getElementById('principal');
-    
+
     fetch('forminsertar.html')
         .then(response => response.text())
         .then(data => {
@@ -71,22 +71,68 @@ function pregunta4() {
 function formmasivo() {
     var contenedor;
     contenedor = document.getElementById('principal');
-    var n=document.getElementById('n').value;
-    alert("enbtro");
-    fetch('form-insertar-masivo.php?n='+n)
+    var n = document.getElementById('n').value;
+
+    fetch('form-insertar-masivo.php?n=' + n)
         .then(response => response.text())
         .then(data => {
             contenedor.innerHTML = data
-            
+
         });
 }
 
-function insertarmasivo()
-{
+function insertarmasivo() {
+
+    var contenedor = document.getElementById('principal');
+    var formulario = document.getElementById("formulario-masivo");
+    var parametros = new FormData(formulario);
+    fetch("createmasivo.php",
+        {
+            method: "POST",
+            body: parametros
+        })
+        .then(response => response.text())
+        .then(data => {
+       
+            fetch('read.php')
+                .then(response => response.text())
+                .then(data => {
+                
+                    contenedor.innerHTML = data
+
+                });
+
+        });
+
 
 }
-    
 
+function pregunta5() {
+    var contenedor;
+    contenedor = document.getElementById('principal');
+
+    fetch('seleccionar.php')
+        .then(response => response.text())
+        .then(data => {
+            contenedor.innerHTML = data
+            historial(5);
+        });
+}
+function cargarFecha() {
+    var contenedor;
+    contenedor = document.getElementById('calendario');
+    var anio=document.getElementById('anio').value;
+    var mes=document.getElementById('mes').value;
+    var ajax = new XMLHttpRequest() //crea el objetov ajax 
+    ajax.open("get", 'calendario?anio='+anio+'&mes='+mes, true);
+    ajax.onreadystatechange = function () {
+        if (ajax.readyState == 4) {
+            contenedor.innerHTML = ajax.responseText
+        }
+    }
+    ajax.setRequestHeader("Content-Type", "text/html; charset=utf-8");
+    ajax.send();
+}
 function cargarContenido(abrir) {
     var contenedor;
     contenedor = document.getElementById('menu');

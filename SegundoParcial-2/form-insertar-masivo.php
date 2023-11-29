@@ -7,22 +7,22 @@ $sql_carreras = "SELECT id,carrera from carreras";
 $usuarios = $con->query($sql_usuarios);
 $editoriales = $con->query($sql_editoriales);
 $carreras = $con->query($sql_carreras);
-$opciones_editoriales="";
-while ($row = $editoriales->fetch_assoc()) { 
-    $opciones_editoriales.='<option value="'.$row['id']. '">'. $row['editorial'].'</option>';
+$opciones_editoriales = "";
+while ($row = $editoriales->fetch_assoc()) {
+    $opciones_editoriales .= '<option value="' . $row['id'] . '">' . $row['editorial'] . '</option>';
 }
-$opciones_usuarios="";
-while ($row = $usuarios->fetch_assoc()) { 
-    $opciones_usuarios.='<option value="'.$row['id']. '">'. $row['nombrecompleto'].'</option>';
+$opciones_usuarios = "";
+while ($row = $usuarios->fetch_assoc()) {
+    $opciones_usuarios .= '<option value="' . $row['id'] . '">' . $row['nombrecompleto'] . '</option>';
 }
-$opciones_carreras="";
-while ($row = $carreras->fetch_assoc()) { 
-    $opciones_carreras.='<option value="'.$row['id']. '">'. $row['carrera'].'</option>';
+$opciones_carreras = "";
+while ($row = $carreras->fetch_assoc()) {
+    $opciones_carreras .= '<option value="' . $row['id'] . '">' . $row['carrera'] . '</option>';
 }
 
 
 ?>
-<form action="javascript:inserarmasivo()" method="post">
+<form action="javascript:insertarmasivo()" method="post" id="formulario-masivo">
     <table>
         <tr>
             <th>imagen</th>
@@ -39,19 +39,19 @@ while ($row = $carreras->fetch_assoc()) {
                 <td> <input type="file" name="imagen<?php echo $i ?>"> </td>
                 <td> <input type="text" name="titulo<?php echo $i ?>"></td>
                 <td><input type="text" name="autor<?php echo $i ?>">
-                <td><select name="editorial<?php echo $i ?>">
-                        <?php echo $opciones_editoriales?>
+                <td><select name="ideditorial<?php echo $i ?>">
+                        <?php echo $opciones_editoriales ?>
                     </select></td>
                 <td><input type="number" name="anio<?php echo $i ?>"> </td>
-                <td><select name="usuario<?php echo $i ?>">
-                <?php echo $opciones_usuarios?>
-                </select></td>
-                <td><select name="carrera<?php echo $i ?>">
-                <?php echo $opciones_carreras?>
-                </select></td>
+                <td><select name="idusuario<?php echo $i ?>">
+                        <?php echo $opciones_usuarios ?>
+                    </select></td>
+                <td><select name="idcarrera<?php echo $i ?>">
+                        <?php echo $opciones_carreras ?>
+                    </select></td>
 
 
-                
+
 
                 </td>
 
@@ -61,4 +61,6 @@ while ($row = $carreras->fetch_assoc()) {
 
         <?php } ?>
     </table>
+    <input type="hidden" name="n" id="n" value=<?php echo $n; ?>>
+    <input type="submit" value="Registrar">
 </form>
